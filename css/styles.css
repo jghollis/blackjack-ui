@@ -1,0 +1,946 @@
+/* styles.css */
+
+/* --- App chrome --- */
+:root{
+    --header-h: 70px;
+    --sidenav-w: 80px;
+
+    --primary: #01426a;
+    --accent:  #219c46;
+    --gold:    #cfb147;
+
+    --gluten: #CC7A00;
+    --gluten-text: "Gluten" , cursive;
+    --lato-text: "Lato", sans-serif;
+    
+
+    --dark-gray-text: #4d4d4d;
+    --light-black: #1a1a1a;
+    --gluten-text-yellow: #CC7A00;
+    --text-blue: #001D54;
+    --text-dark-gray: #4D4D4D;
+    --text-off-white: #f2f2f2;
+
+
+    --bg: #ffffff;
+    --border: #757575;
+    
+    
+    --but-shadow-sm: 0px 0px 0px 1px rgba(77, 77, 77, .2);
+    --circle-shadow: 0px 0px 2px 2px rgba(242, 242, 242, .25);
+}
+
+* { box-sizing: border-box; }
+html, body { 
+    height: 100%; 
+}
+
+body { 
+    font-family: var(--lato-text) !important;
+}
+
+.lg-white-text {
+    color: #f2f2f2;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: var(--lato-text)
+}
+
+.bet-white-text {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: var(--lato-text);
+    color: #f2f2f2;
+}
+
+.md-white-text {
+    color: #f2f2f2;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: var(--lato-text)
+}
+
+.sm-white-text {
+    color: #f2f2f2;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--lato-text)
+}
+
+a.sm-white-text {
+    color: #f2f2f2 !important;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: var(--lato-text);
+    text-decoration: none !important;
+}
+
+a.sm-white-text:hover {
+    text-decoration: underline !important;
+}
+
+img.user-img {
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+    border-radius: 50%;
+    box-shadow: var(--circle-shadow);
+}
+
+img.dealer-img {
+    width: 125px;
+    height: 125px;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: var(--circle-shadow);
+}
+
+@media (max-width: 992px) {
+   img.dealer-img {
+        width: 60px;
+        height: 60px;
+    } 
+}
+
+
+#topbar {
+    height: var(--header-h);
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    z-index: 40;
+}
+
+.app-title { 
+    font-size: 28px; 
+    font-weight: 600; 
+    color: var(--gluten);
+    display: inline-flex;
+    font-family: var(--gluten-text);
+}
+
+.app-title .game-title {
+    position: relative;
+    top: 2px;
+}
+
+
+.game-title {
+    color: var(--dark-gray-text);
+    font-family: var(--lato-text);
+    font-size: 22px;
+    font-weight: 500;
+}
+
+
+/* Desktop sidenav */
+#sidenav{
+    width: var(--sidenav-w);
+    height: 100vh;
+    background: #ffffff;
+    border-right: 1px solid rgba(117,117,117,.08);
+    z-index: 30;
+    padding-top: 100px;
+}
+
+.side-logo { 
+    font-size: 1.6rem; 
+}
+
+.side-item.active { 
+    outline: 2px solid var(--gluten);
+    padding: 25px;
+    padding-top: 30px;
+    border-radius: 5px;
+}
+
+.side-item {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--dark-gray-text);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.25;
+    font-family: var(--gluten-text);
+    text-align: center;
+    gap: 2px; 
+}
+
+.side-item::first-line {
+    font-size: 22px;
+}
+
+
+
+/* Stage (game area) */
+#stage {
+    top: var(--header-h);
+    left: 0; right: 0; bottom: 0;
+    padding-left: 0;
+    z-index: 1;
+}
+
+@media (min-width: 992px) {
+    #stage { 
+        left: var(--sidenav-w); 
+    }
+}
+
+/* Blue background placeholder */
+.table-bg {
+    position: absolute; inset: 0;
+    background: url("../img/blue-table.png") center center / cover no-repeat;
+}
+
+
+/* Rules card (desktop only) */
+.rules-card {
+    position: absolute;
+    left: 3%;
+    top: 4%;
+    width: auto;
+    padding: 18px 20px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: var(--circle-shadow);
+}
+
+.popover {
+    --bs-popover-bg: none !important;
+}
+
+.popover-body {
+    width: auto;
+    padding: 10px 15px !important;
+    background: #1a1a1a;
+    border-radius: 10px;
+    color: #f2f2f2 !important;
+    font-size: 14px;
+}
+
+/* Dealer section */
+.dealer {
+    position: absolute; 
+    top: 54px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: min(1100px, 92vw);
+}
+
+.avatar{
+    width: 64px; 
+    height: 64px; 
+    border-radius: 999px;
+    background: #fff; 
+    outline: 3px solid rgba(255,255,255,.4);
+    box-shadow: var(--circle-shadow);
+}
+
+
+.user-text {
+    font-size: 20px;
+}
+
+@media (max-width: 992px) {
+    .user-text {
+        font-size: 18px;
+    }
+}
+
+span.badge.text-bg-light.ms-2 {
+    width: 40px;
+    height: 40px;
+    background: #f2f2f2;
+    border: 2px solid #1a1a1a;
+    color: #1a1a1a;
+    border-radius: 50%;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: "Lato",sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--circle-shadow);
+}
+
+@media (max-width: 992px) {
+    span.badge.text-bg-light.ms-2 {
+        width: 30px;
+        height: 30px;
+        padding: 0 8px !important;
+        background: #f2f2f2;
+        border: 2px solid #1a1a1a;
+        color: #1a1a1a;
+        border-radius: 50%;
+        font-weight: 500;
+        font-size: 16px;
+        font-family: "Lato",sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: var(--circle-shadow);
+    }
+}
+
+.name-bubble {
+    color: #f2f2f2;
+    background: rgba(51,51,51,.60);
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .name-bubble {
+        color: #f2f2f2;
+        background: rgba(51,51,51,.60);
+        padding: 5px 10px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Cards (Ace of Hearts placeholders) */
+.card-img {
+    flex: 0 0 auto;
+    border-radius: 5px !important;
+    background-color: #f2f2f2;
+    width: 50px !important;
+    height: 70px;
+    background:
+    linear-gradient(180deg, #fff, #f4f4f4);
+    box-shadow: var(--circle-shadow);
+    position: relative;
+    flex: 0 0 auto
+}
+
+@media (min-width: 992px) {
+    .card-img {
+        width: 100px !important;
+        height: 130px;
+    }
+}
+
+
+
+.card-img.ace-heart::after {
+    content: "A ♥";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #cc0000;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.card-img.six-heart::after {
+    content: "6 ♥";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #cc0000;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.card-img.queen-heart::after {
+    content: "Q ♥";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #cc0000;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.card-img.two-club::after {
+    content: "2 ♣";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #1a1a1a;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.card-img.king-club::after {
+    content: "K ♣";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #1a1a1a;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.card-img.two-spade::after {
+    content: "2 ♠";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #1a1a1a;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.card-img.three-diamond::after {
+    content: "3 ♦";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #cc0000;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.card-img.four-spade::after {
+    content: "4 ♠";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #1a1a1a;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+
+
+/* Player section */
+.player {
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%);
+    bottom: 300px; 
+    width: min(1100px,92vw);
+}
+
+
+.btn.disabled, .btn:disabled, fieldset:disabled .btn {
+    pointer-events: visible !important;
+    cursor: not-allowed;
+    background-color: #d9d9d9 !important;
+    opacity: .9 !important;
+    color: #737373 !important;
+}
+
+.deal-right { 
+    gap: 0; 
+}
+
+.bet-amount {
+    color: #f2f2f2;
+    background: rgba(51,51,51,.50);
+    padding: 10px 10px;
+    width: 180px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f2f2f2;
+}
+
+
+/* Betting / chips / deal */
+.betting .chip {
+    width: 52px; 
+    height: 52px; 
+    border-radius: 999px;
+    background: repeating-conic-gradient(#c33 0 10deg, #fff 10deg 20deg);
+    position: relative; 
+    box-shadow: var(--circle-shadow);
+}
+
+.betting .chip--green {
+    background: repeating-conic-gradient(#2c8c3c 0 10deg, #fff 10deg 20deg);
+}
+
+button.btn.undo {
+    color: #f2f2f2;
+    padding: 0px;
+}
+
+img.deal-card {
+    width: 35px;
+    height: 48px;
+}
+
+
+/* Desktop spacing of stacks */
+@media (min-width: 992px) {
+    .dealer{ 
+        top: 4%; 
+    }
+    .player{ 
+        bottom: 20%; 
+    }
+}
+
+/* Popover content tweak */
+.rules-pop { 
+    min-width: 220px; 
+}
+
+/* Disable scroll everywhere */
+html, body, #stage, .offcanvas { 
+    overflow: hidden; 
+}
+
+/* Bootstrap navbar toggler icon paint so no extra assets needed */
+.navbar-toggler-icon {
+    display:inline-block; 
+    width:1.5em; 
+    height:1.5em;
+    background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-repeat:no-repeat; 
+    background-position:center; 
+    background-size:100% 100%;
+}
+
+
+
+#mobileMenuBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    z-index: 2000;
+    border: none;
+    color: #f2f2f2;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+#mobileMenuBtn:active {
+    transform: scale(0.95);
+}
+
+
+
+/* Mobile nav & info buttons aligned on the same row */
+#mobileMenuBtn,
+#infoBtn {
+    position: absolute;
+    top: 12px;
+    width: 44px;
+    height: 44px;
+    z-index: 2000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(0,0,0,.35);
+    color: #f2f2f2;
+    font-size: 20px;
+    cursor: pointer;
+    backdrop-filter: blur(2px);
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    z-index: 2000;
+    border: none;
+    color: #f2f2f2;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+#mobileMenuBtn { 
+    right: 12px; 
+}
+
+#infoBtn { 
+    left: 12px;  
+}
+
+#mobileMenuBtn:active,
+#infoBtn:active { 
+    transform: scale(0.95); 
+}
+
+.offcanvas {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+.offcanvas-title {
+    font-family: var(--gluten-text);
+    font-size: 24px;
+}
+
+
+
+
+@media (max-width: 992px) {
+    button.btn.btn-primary {
+        width: 65px;
+        height: 40px;
+    }
+    .btn.btn-outline-secondary {
+        width: auto !important;
+        height: 40px;
+    }
+}
+
+button.btn.btn-primary.green {
+    background-color: green;
+    border: none;
+    margin-left: 30px;
+}
+
+@media (max-width: 992px) {
+    button.btn.btn-primary.green {
+    margin-left: 0px;
+    }
+}
+
+button.btn.btn-primary.black {
+    background-color: #1a1a1a;
+    border: none;
+}
+
+
+
+.btn.btn-outline-secondary {
+    --bs-btn-color: #f2f2f2;
+    --bs-btn-border-color: rgba(242, 242, 242, 0.5) !important;
+    font-family: var(--lato-text);
+    font-size: 16px;
+    width: 123px;
+}
+
+/* Replace Bootstrap's default .btn-close image with a CSS '×' icon */
+.btn-close {
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    background: none !important;
+    border: none;
+    opacity: 1 !important;
+}
+
+.btn-close::before,
+.btn-close::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.2rem;
+    height: 2px;
+    background-color: #f2f2f2;
+    transform-origin: center;
+}
+
+.btn-close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.btn-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+
+/* Optional: make popover a bit wider on mobile */
+.rules-pop { 
+    min-width: 220px; 
+}
+
+
+/* Center title between info + hamburger on mobile/tablet */
+#mobileTitle {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f2f2f2;
+    font-family: var(--gluten-text);
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    pointer-events: none;
+    z-index: 1999;
+}
+
+
+.undo-bubble { 
+    margin-left: auto; 
+}
+
+.chip {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+
+.chip-green {
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #fff 0 30%, transparent 31%), radial-gradient(circle at 50% 50%, #c8d2e0 0 32%, transparent 33%), #2fb24a;
+    border: 6px dashed #fff;
+    box-shadow: var(--circle-shadow);
+}
+
+.chip-white {
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #fff 0 30%, transparent 31%), radial-gradient(circle at 50% 50%, #c8d2e0 0 32%, transparent 33%), #d2d8e3;
+    border: 6px dashed #fff;
+    box-shadow: var(--circle-shadow);
+}
+
+.chip-red {
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #fff 0 30%, transparent 31%), radial-gradient(circle at 50% 50%, #c8d2e0 0 32%, transparent 33%), #cf3d37;
+    border: 6px dashed #fff;
+    box-shadow: var(--circle-shadow);
+}
+
+
+
+
+/* Controls: mobile-first (stacked) */
+.controls {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 20px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .75rem;
+}
+
+@media (min-width: 992px){
+    .controls {
+        position: absolute;
+        left: 60px;
+        right: 3%;
+        bottom: 5%;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: .75rem;
+    }
+}
+
+/* Betbar structure (shared) */
+.betbar {
+    position: static;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.bet-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 52px;
+}
+.bet-left, .chips-left { 
+    display:flex; 
+    align-items:center; 
+    gap:.5rem; 
+}
+.undo-bubble { 
+    margin-left: auto; 
+}
+
+/* ===== Desktop: center full cluster; put Hit/Stand to the right ===== */
+@media (min-width: 992px){
+
+/* action cluster locked in the visual center */
+    .action-wrap{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row;   /* one row */
+        align-items: center;
+        gap: 12px;
+        flex-wrap: nowrap;
+    }
+
+/* your two inner wrappers (first = ghost buttons, last = Hit/Stand) */
+    .action-wrap > div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+}
+
+/* ensure the betbar stays hard-right */
+    .betbar{
+        width: auto !important;
+        margin-left: auto;
+        min-width: 260px;
+}
+
+/* remove the manual nudge that was pushing Hit */
+    .btn.btn-primary.green { 
+        margin-left: 30px !important; 
+    }
+}
+
+
+
+
+/* Mobile/Tablet: put Hit/Stand ABOVE the ghost buttons; betbar last */
+@media (max-width: 991.98px) {
+    .action-wrap { 
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    
+    
+    
+    .action-wrap .row-prim { 
+        order: 1;
+        gap: 20px;
+    }
+    
+    .action-wrap .row-ghost { 
+        order: 2;
+        gap: 20px;
+    }
+    
+    
+    
+    #topbar {
+        display: none !important;
+    }
+
+    #stage {
+        top: 0 !important; /* let blue table extend to top */
+    }
+}
+
+/*
+@media (min-width: 600px) {
+    .betbar { 
+        order: 3; 
+        width: 50%;
+        margin: auto;
+        margin-top: .5rem;
+    }
+}*/
+
+
+/* Keep MOBILE/TABLET as-is (no flip) */
+@media (max-width: 991.98px){
+  .action-wrap{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  /* restore natural order on mobile */
+  .action-wrap > div { order: 0; }
+}
+
+/* Flip on DESKTOP: ghost group first, Hit/Stand to the right, centered cluster */
+@media (max-width: 992px){
+  .controls{
+/*
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    position: absolute;
+    left: 24px;
+    right: 24px;
+*/
+  }
+
+  .action-wrap{
+    position: absolute;          /* locks the cluster in the screen center */
+    left: 50%;
+      bottom: 120%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+
+
+  /* betbar pinned hard-right */
+  .betbar{
+    width: auto !important;
+    /* margin-left: auto; */
+    min-width: 360px;
+    margin: auto;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Flip on DESKTOP: ghost group first, Hit/Stand to the right, centered cluster */
+@media (min-width: 992px){
+  .controls{
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    position: absolute;
+    left: 24px;
+    right: 24px;
+  }
+
+  .action-wrap{
+    position: absolute;          /* locks the cluster in the screen center */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* explicit order on desktop (ghost group, then Hit/Stand) */
+  .action-wrap > div:first-child { order: 1; }
+  .action-wrap > div:last-child  { order: 2; }
+
+  /* betbar pinned hard-right */
+  .betbar{
+    width: auto !important;
+    margin-left: auto;
+    min-width: 260px;
+  }
+
+  /* remove any nudge that was pushing Hit */
+  .btn.btn-primary.green{ margin-left: 0 !important; }
+}
