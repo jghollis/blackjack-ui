@@ -65,9 +65,8 @@ praeses_blackjack/
 ├─ scripts/
 │  └─ main.js                  # Interactive logic and event handling
 └─ assets/
-   ├─ img/                     # UI images and assets (cards, chips, icons)
-   ├─ cards/                   # Optional: dealer/player card assets
-   └─ icons/                   # Supporting UI icons
+   └─ img/                     # UI images and assets (cards, chips, icons)
+
 
 
 
