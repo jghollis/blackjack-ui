@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>JGH - Solo Blackjack</title>
+<!-- Reset Styles -->
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+    
+<!-- Bootstrap 5.3 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+<!-- My Styles -->
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/7d5e19273d.js" crossorigin="anonymous"></script>
+
+
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body class="overflow-hidden">
+
+    <!-- Top Banner (fixed, non-scrolling) -->
+    <header id="topbar" class="position-fixed top-0 start-0 end-0 d-flex align-items-center justify-content-between px-3">
+
+        <div class="d-flex align-items-center gap-2">
+            <h1 class="m-0 app-title">Just Get Happy <span class="game-title"> &nbsp; &nbsp;Solo Blackjack</span></h1>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+            <div class="user-pill d-none d-lg-flex align-items-center gap-2">
+                <img class="user-img" src="assets/img/user-img.png" alt="Jennifer G. Hollis"/>
+                <span style="font-size: 18px;">Pumpkin Jennifer</span>
+        </div>
+        </div>
+    </header>
+
+    <!-- Side Nav (fixed, desktop only, non-scrolling) -->
+    <aside id="sidenav" class="position-fixed top-0 start-0 d-none d-lg-flex flex-column align-items-center">
+        <nav class="d-flex flex-column align-items-center gap-4">
+            <a class="side-item" href="#">🏠 Home</a>
+            <a class="side-item" href="#" title="Popular">⭐ Popular</a>
+            <a class="side-item" href="#" title="Board">♞ Board</a>
+            <a class="side-item active" href="#" title="Card">🃏 Card</a>
+            <a class="side-item" href="#" title="Dice">🎲 Dice</a>
+        </nav>
+    </aside>
+
+    <!-- Flyout Nav (mobile/tablet) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="flyoutNav">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body d-flex flex-column gap-3">
+            <a class="btn btn-outline-secondary" href="#">🏠 Home</a>
+            <a class="btn btn-outline-secondary" href="#">⭐ Popular</a>
+            <a class="btn btn-outline-secondary" href="#">♞ Board</a>
+            <a class="btn btn-outline-secondary" href="#">🃏 Card</a>
+            <a class="btn btn-outline-secondary" href="#">🎲 Dice</a>
+        </div>
+    </div>
+
+    <!-- Main Game Stage (fills viewport, never scrolls) -->
+    <main id="stage" class="position-fixed">
+        <!-- Blue table background placeholder -->
+        <div class="table-bg"></div>
+
+        <!-- Mobile/Tablet info icon (top-left on blue board) -->
+        <button id="infoBtn"
+        class="d-lg-none"
+        type="button"
+        aria-label="Game Rules"
+        data-bs-toggle="popover"
+        data-bs-placement="bottom"
+        data-bs-html="true"
+        data-bs-trigger="hover focus"
+        data-bs-content="
+        <div class='rules-pop'>
+        <div class='md-white-text fw-bold mb-1 text-center'>Game Rules</div>
+        <div class='sm-white-text d-flex mb-1 justify-content-between'><span>Min Bet:</span><span>$2.00</span></div>
+        <div class='sm-white-text d-flex mb-1 justify-content-between'><span>Max Bet:</span><span>$500.00</span></div>
+        <div class='sm-white-text d-flex mb-1 justify-content-between'><span>Double:</span><span>Yes</span></div>
+        <div class='sm-white-text d-flex mb-1 justify-content-between'><span>Insurance:</span><span>Yes</span></div>
+        <div class='sm-white-text d-flex mb-1 justify-content-between'><span>Split:</span><span>Yes</span></div>
+        <a class='sm-white-text d-block mt-2 text-center' href='https://bicyclecards.com/how-to-play/blackjack/' target='_blank' rel='noopener'>🔗  Official Rules</a>
+        </div>
+        ">
+
+        <i class="fa fa-info-circle"></i>
+
+        </button>
+
+
+        <!-- Center title between icons -->
+        <div id="mobileTitle" class="d-lg-none">Solo Blackjack</div>
+
+
+
+
+        <!-- Mobile/Tablet nav icon (top right of game area) -->
+        <button id="mobileMenuBtn"
+        class="d-lg-none"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#flyoutNav"
+        aria-label="Open Menu">
+        <i class="fa fa-bars"></i>
+        </button>
+
+
+        <!-- Desktop rules panel -->
+        <div class="rules-card d-none d-lg-block">
+            <div class="mb-1 lg-white-text text-center">
+                <p class="text-uppercase mb-1 fw-bold">Game Rules</p>
+            </div>
+
+            <div class="d-flex justify-content-between md-white-text mt-1">
+            <p class="mb-0">Min Bet:</p>
+            <p class="mb-0">$2.00</p>
+            </div>
+
+            <div class="d-flex justify-content-between md-white-text mt-1">
+            <p class="mb-0">Max Bet:</p>
+            <p class="mb-0">$500.00</p>
+            </div>
+
+            <div class="d-flex justify-content-between md-white-text mt-1">
+            <p class="mb-0">Double:</p>
+            <p class="mb-0">Yes</p>
+            </div>
+
+            <div class="d-flex justify-content-between md-white-text mt-1">
+            <p class="mb-0">Insurance:</p>
+            <p class="mb-0">Yes</p>
+            </div>
+
+            <div class="d-flex justify-content-between md-white-text mt-1">
+            <p class="mb-0">Split:</p>
+            <p class="mb-0">Yes</p>
+            </div>
+
+            <a href="https://bicyclecards.com/how-to-play/blackjack/" target="blank" class="d-flex justify-content-center align-items-center mt-2 sm-white-text">🔗 Official Rules</a>
+        </div>
+
+
+
+
+
+
+
+
+        <!-- Stacked table layout (centered vertically & horizontally) -->
+        <div class="table-stack">
+
+            <!-- DEALER -->
+            <section class="stack-section d-flex flex-column align-items-center justify-content-center w-100">
+                <div class="dealer d-flex flex-column align-items-center text-center">
+                    <div class="d-flex align-items-center gap-2 mt-2">
+                        <div class="name-bubble d-flex align-items-center">
+                            <img class="user-img me-3" src="assets/img/dealer.png" alt="Dealer"/>
+                                <span class="me-2"><span class="user-text">Dealer</span></span>
+                                <span class="score-badge ms-2">27</span>
+                        </div>
+                    </div>
+
+                <!-- One-row overlapping dealer hand -->
+                    <div class="hand hand--dealer hand-row mt-3" id="dealerHand">
+                        <div class="card-img six-heart">
+                            <span class="corner top-left">6♥</span>
+                            <span class="center-suit">♥</span>
+                            <span class="corner bottom-right">6♥</span>
+                        </div>
+                        <div class="card-img two-club">
+                            <span class="corner top-left">2♣</span>
+                            <span class="center-suit">♣</span>
+                            <span class="corner bottom-right">2♣</span>
+                        </div>
+                        <div class="card-img three-diamond">
+                            <span class="corner top-left">3♦</span>
+                            <span class="center-suit">♦</span>
+                            <span class="corner bottom-right">3♦</span>
+                        </div>
+                        <div class="card-img two-spade">
+                            <span class="corner top-left">2♠</span>
+                            <span class="center-suit">♠</span>
+                            <span class="corner bottom-right">2♠</span>
+                        </div>
+                        <div class="card-img four-spade">
+                            <span class="corner top-left">4♠</span>
+                            <span class="center-suit">♠</span>
+                            <span class="corner bottom-right">4♠</span>
+                        </div>
+                        <div class="card-img king-club">
+                            <span class="corner top-left">K♣</span>
+                            <span class="center-suit">♣</span>
+                            <span class="corner bottom-right">K♣</span>
+                        </div>
+                    </div>
+            </div>
+            </section>
+
+            <!-- ACTION BAR (3 columns: left ghost stack | centered Place Bet | right Hit/Stand + Deal) -->
+            <section class="stack-section d-flex flex-column align-items-center justify-content-center w-100">
+                <div class="action-bar">
+                    <!-- LEFT -->
+                    <div class="action-col action-col--left">
+                        <div class="stack">
+                            <!--
+                            <button class="btn btn-outline-secondary" disabled>Split</button>
+                            <button class="btn btn-outline-secondary" disabled>Insurance</button>
+                            <button class="btn btn-outline-secondary" disabled>Double</button>
+                            -->
+                        </div>
+                    </div>
+
+                    <!-- CENTER -->
+                    <div class="action-col action-col--center">
+                        <div class="place-bet stack align-center">
+                            <span class="bet-white-text" style="color: #008000; font-weight: bold; background-color: #f2f2f2; padding: 25px; border-radius: 10px;
+    font-size: 22px;">You Won</span>
+                            <div class="place-bet__circle" id="bjPlaceBetCircle" title="Place Bet"><span class="bet-amount">$50.00</span></div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="action-col action-col--right">
+                        <div class="stack align-end">
+                            <!--
+                            <button class="btn btn-primary green" aria-label="Hit">Hit</button>
+                            <button class="btn btn-primary green" aria-label="Stand">Stand</button>
+                            -->
+
+                            <button onclick="window.location.href='new_game.html'"  class="name-bubble stack align-center" aria-label="Deal" style="gap: 5px; border: none !important; box-shadow: var(--circle-shadow)"> 
+                                <!--<img class="deal-card" src="assets/img/deal-card.png" alt="Deck of Cards - Deal" />-->
+                                <div class="bet-white-text">New Game</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PLAYER -->
+            <section class="stack-section d-flex flex-column align-items-center justify-content-center w-100">
+                <div class="player d-flex flex-column align-items-center text-center">
+                    <div class="hand hand--player hand-row" id="playerHand">
+                        <div class="card-img ace-heart">
+                        <span class="corner top-left">A♥</span>
+                        <span class="center-suit">♥</span>
+                        <span class="corner bottom-right">A♥</span>
+                        </div>
+                        <div class="card-img queen-heart">
+                        <span class="corner top-left">Q♥</span>
+                        <span class="center-suit">♥</span>
+                        <span class="corner bottom-right">Q♥</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-0 mt-3">
+                        <div class="name-bubble d-flex align-items-center">
+                            <img class="user-img me-3" src="assets/img/user-img.png" alt="Jennifer G. Hollis"/>
+                            <span class="me-2"><span class="user-text">Pumpkin Jennifer</span></span>
+                            <span class="score-badge ms-2">21</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- BETTING -->
+            <section class="stack-section stack-section--betting d-flex flex-column align-items-center justify-content-center w-100">
+  <div class="betting-wrap">
+    <div class="betting-top">
+      <div class="name-bubble">
+        <span class="user-text">$4,950.00</span>
+      </div>
+
+      <div class="name-bubble" style="border-radius:100%; box-shadow: none;">
+        <button style="cursor: not-allowed; opacity: .9;" class="btn undo" title="Undo" aria-label="Undo Bet">
+          <i class="fa fa-undo"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="chips-row">
+      <button style="cursor: not-allowed;" class="chip chip-silver" aria-label="Bet $1"><span class="chip-value">$1</span></button>
+      <button style="cursor: not-allowed;" class="chip chip-green"  aria-label="Bet $5"><span class="chip-value">$5</span></button>
+      <button style="cursor: not-allowed;" class="chip chip-orange" aria-label="Bet $10"><span class="chip-value">$10</span></button>
+      <button style="cursor: not-allowed;" class="chip chip-red"    aria-label="Bet $50"><span class="chip-value">$50</span></button>
+    </div>
+  </div>
+</section>
+
+
+        </div>
+
+    </main>
+
+    <script src="main.js" defer></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
