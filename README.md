@@ -15,6 +15,13 @@ This project demonstrates modern UI/UX design principles — balance, hierarchy,
 | **all_content.html** | Sandbox view showing all UI components for testing | Used for development and component inspection |
 
 
+## 🕹️ Project Summary
+
+This Blackjack interface was designed to demonstrate strong UI/UX fundamentals through a real-world game scenario.  
+The goal was to create an experience that feels intuitive, visually balanced, and responsive — while showcasing thoughtful component architecture, interaction feedback, and accessibility best practices across devices.
+
+
+
 ## 🎨 Design Decisions
 
 ### **Research**
