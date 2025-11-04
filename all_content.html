@@ -215,9 +215,9 @@
                     <!-- LEFT -->
                     <div class="action-col action-col--left">
                         <div class="stack">
-                            <button class="btn btn-outline-secondary" disabled>Split</button>
-                            <button class="btn btn-outline-secondary" disabled>Insurance</button>
-                            <button class="btn btn-outline-secondary" disabled>Double</button>
+                            <button class="btn btn-outline-secondary">Split</button>
+                            <button class="btn btn-outline-secondary">Insurance</button>
+                            <button class="btn btn-outline-secondary">Double</button>
                         </div>
                     </div>
 
@@ -225,7 +225,7 @@
                     <div class="action-col action-col--center">
                         <div class="place-bet stack align-center">
                             
-                            <span class="bet-white-text" style="color: #cc0000; font-weight: bold; background-color: #f2f2f2; padding: 5px 10px; border-radius: 10px;">Max Bet</span>
+                            <span class="bet-white-text" style="color: #cc0000; font-weight: bold; background-color: #f2f2f2; padding: 5px 10px; border-radius: 5px;">Max Bet</span>
     
                             <div class="place-bet__circle" id="bjPlaceBetCircle" title="Place Bet"><span class="bet-amount">$500.00</span></div>
                         </div>
@@ -235,11 +235,11 @@
                     <div class="action-col action-col--right">
                         <div class="stack align-end">
                             <button class="btn btn-primary green" aria-label="Hit">Hit</button>
-                            <button class="btn btn-primary green" aria-label="Stand">Stand</button>
+                            <button class="btn btn-primary orange" aria-label="Stand">Stand</button>
 
-                            <button onclick="window.location.href='index.html'"  class="name-bubble stack align-center" aria-label="Deal" style="gap: 5px; border: none !important; box-shadow: var(--circle-shadow)"> 
+                            <button onclick="window.location.href='index.html'"  class="name-bubble deal stack align-center" aria-label="Deal"> 
                                 <img class="deal-card" src="assets/img/deal-card.png" alt="Deck of Cards - Deal" />
-                                <div class="bet-white-text">Deal</div>
+                                <div>Deal</div>
                             </button>
                         </div>
                     </div>
@@ -280,8 +280,8 @@
         <span class="user-text">$4,950.00</span>
       </div>
 
-      <div class="name-bubble" style="border-radius:100%; box-shadow: none;">
-        <button style="cursor: not-allowed; opacity: .9;" class="btn undo" title="Undo" aria-label="Undo Bet">
+      <div class="name-bubble undo-bet">
+        <button class="btn undo" title="Undo" aria-label="Undo Bet">
           <i class="fa fa-undo"></i>
         </button>
       </div>

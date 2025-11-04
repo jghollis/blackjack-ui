@@ -210,7 +210,7 @@
             </section>
 
             <!-- ACTION BAR (3 columns: left ghost stack | centered Place Bet | right Hit/Stand + Deal) -->
-            <section class="stack-section d-flex flex-column align-items-center justify-content-center w-100">
+            <section class="stack-section d-flex flex-column align-items-center justify-content-center w-100" style="padding: 50px 0px;">
                 <div class="action-bar">
                     <!-- LEFT -->
                     <div class="action-col action-col--left">
@@ -226,9 +226,9 @@
                     <!-- CENTER -->
                     <div class="action-col action-col--center">
                         <div class="place-bet stack align-center">
-                            <span class="bet-white-text" style="color: #008000; font-weight: bold; background-color: #f2f2f2; padding: 25px; border-radius: 10px;
-    font-size: 22px;">You Won</span>
-                            <div class="place-bet__circle" id="bjPlaceBetCircle" title="Place Bet"><span class="bet-amount">$50.00</span></div>
+                            <span class="bet-white-text" style="color: #008000; font-weight: bold; background-color: #f2f2f2; padding: 5px 10px; border-radius: 5px;
+    font-size: 22px; margin-bottom: 25px;">You Won 🎉</span>
+                            <div class="place-bet__circle" id="bjPlaceBetCircle" title="Place Bet"><span class="bet-amount" style="color: #008000; font-weight: bold;">$50.00</span></div>
                         </div>
                     </div>
 
@@ -240,9 +240,9 @@
                             <button class="btn btn-primary green" aria-label="Stand">Stand</button>
                             -->
 
-                            <button onclick="window.location.href='new_game.html'"  class="name-bubble stack align-center" aria-label="Deal" style="gap: 5px; border: none !important; box-shadow: var(--circle-shadow)"> 
+                            <button onclick="window.location.href='new_game.html'"  class="name-bubble new-game stack align-center" aria-label="Deal" style="border: none !important;"> 
                                 <!--<img class="deal-card" src="assets/img/deal-card.png" alt="Deck of Cards - Deal" />-->
-                                <div class="bet-white-text">New Game</div>
+                                <span>New Game</span>
                             </button>
                         </div>
                     </div>
@@ -278,19 +278,19 @@
         <!-- BETTING -->
             <section class="stack-section stack-section--betting d-flex flex-column align-items-center justify-content-center w-100">
   <div class="betting-wrap">
-    <div class="betting-top">
+    <div class="betting-top" style="display: block">
       <div class="name-bubble">
         <span class="user-text">$4,950.00</span>
       </div>
 
-      <div class="name-bubble" style="border-radius:100%; box-shadow: none;">
-        <button style="cursor: not-allowed; opacity: .9;" class="btn undo" title="Undo" aria-label="Undo Bet">
+      <div class="name-bubble undo-bet" style="display: none;">
+        <button class="btn undo" title="Undo" aria-label="Undo Bet">
           <i class="fa fa-undo"></i>
         </button>
       </div>
     </div>
 
-    <div class="chips-row">
+    <div class="chips-row" style="display: none;">
       <button style="cursor: not-allowed;" class="chip chip-silver" aria-label="Bet $1"><span class="chip-value">$1</span></button>
       <button style="cursor: not-allowed;" class="chip chip-green"  aria-label="Bet $5"><span class="chip-value">$5</span></button>
       <button style="cursor: not-allowed;" class="chip chip-orange" aria-label="Bet $10"><span class="chip-value">$10</span></button>

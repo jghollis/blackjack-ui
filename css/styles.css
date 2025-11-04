@@ -311,6 +311,11 @@ img.dealer-img {
     }
 }
 
+.name-bubble.undo-bet {
+    background-color: transparent;
+    padding: 0px;
+}
+
 
 .card-img {
   position: relative;
@@ -752,7 +757,20 @@ img.dealer-img {
 
 button.btn.undo {
     color: #f2f2f2;
-    padding: 0px;
+    border: none !important;
+    border-radius: 1005;
+    width: 30px;
+    height: 30px;
+    background: #f2f2f2;
+    color: #1a1a1a;
+    border-radius: 50%;
+    font-weight: 500;
+    font-size: 16px;
+    font-family: "Lato",sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--circle-shadow);
 }
 
 img.deal-card {
@@ -761,6 +779,27 @@ img.deal-card {
     margin-top: 5px;
 }
 
+
+button.name-bubble.deal {
+    gap: 0px;
+    border: none !important;
+    /* box-shadow: var(--circle-shadow); */
+    background-color: #f2f2f2;
+    color: #1a1a1a;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button.name-bubble.new-game {
+    border: none !important;
+    background-color: #f2f2f2;
+    color: #1a1a1a;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 75px;
+    margin-right:20px;
+    width: 100px;
+}
 
 /* Popover content tweak */
 .rules-pop { 
@@ -871,8 +910,8 @@ button.btn.btn-primary.green {
     }
 }
 
-button.btn.btn-primary.black {
-    background-color: #1a1a1a;
+button.btn.btn-primary.orange {
+    background-color: #CC6600;
 }
 
 
@@ -884,6 +923,8 @@ button.btn.btn-primary.black {
     font-size: 16px;
     width: 94px;
     border-color: rgba(242, 242, 242, 0.2) !important;
+    background-color: #f2f2f2;
+    color: #1a1a1a;
 }
 
 /* Replace Bootstrap's default .btn-close image with a CSS '×' icon */
@@ -1109,23 +1150,22 @@ button.btn.btn-primary.black {
 .place-bet__circle {
     position: relative;
     border-color: #f2f2f2;
-    color: #1a1a1a;
     font-family: "Lato", sans-serif;
     width: 100px;
     height: 100px;
-    background: rgba(26,26,26,.60);
+    background: #f2f2f2;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: var(--light-border);
+    box-shadow: var(--circle-shadow);
 }
 
 
 .place-bet__circle .bet-amount {
-    color: #f2f2f2;
-    font-size: 22px;
-    font-weight: 700;
+    color: #1a1a1a;
+    font-size: 20px;
+    font-weight: 500;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1185,9 +1225,15 @@ button.btn.btn-primary.black {
 .hand-row > .card:nth-child(8) { z-index: 8; }
 
 
-.action-col{ min-width: 0; }
+.action-col{ 
+    min-width: 0; 
+}
 
-.stack{ display: flex; flex-direction: column; gap: 10px; }
+.stack{ 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
 
 
 /* ================= FIX MOBILE + DESKTOP VERTICAL SPACING ================== */
@@ -1300,7 +1346,7 @@ button.btn.btn-primary.black {
     width: max-content;                
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
     margin-inline: auto;                
 }
 
