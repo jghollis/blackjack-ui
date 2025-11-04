@@ -27,3 +27,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+onclick="window.location.href='pages/dealt.html'"
